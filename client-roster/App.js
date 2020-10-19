@@ -1,6 +1,7 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { ClientProvider } from './src/context/ClientContext';
 
 import IndexView from './src/views/IndexView';
 
@@ -16,5 +17,7 @@ const navigator = createStackNavigator({
 const App =  createAppContainer(navigator);
 
 export default () => {
-  return <App />
-}
+  return <ClientProvider>
+    <App />
+  </ClientProvider>
+};
