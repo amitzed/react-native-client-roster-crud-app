@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import ClientContext from '../context/ClientContext';
 
 const IndexView = () => {
+  const value = useContext(ClientContext);
+
   return (
     <View>
-      <Text>Index View</View>
+      <Text>{value}</Text>
     </View>
   )
 }
