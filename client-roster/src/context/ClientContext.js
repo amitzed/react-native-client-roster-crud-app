@@ -1,6 +1,4 @@
-import React, { useReducer } from 'react';
-
-const ClientContext = React.createContext();
+import createDataContext from './createDataContext';
 
 const clientReducer = (state, action) => {
   switch(action.type) {
@@ -11,18 +9,16 @@ const clientReducer = (state, action) => {
   }
 };
 
-export const ClientProvider = ({ children }) => {
-  const [ clientDetails, dispatch ] = useReducer(clientReducer, []);
-
-  const addClientDetail = () => {
+const addClientDetail = (dispatch) => {
+  return () => {
     dispatch({
       type: 'add_clientdetail'
     });
   }
+}
 
-  return <ClientContext.Provider value={{data: clientDetails, addClientDetail}}>
-    {children}
-  </ClientContext.Provider>
-};
-
-export default ClientContext;
+export const { Context, Provider } = createDataContext(
+  clientReducer,
+  {addClientDetail},
+  []
+);
