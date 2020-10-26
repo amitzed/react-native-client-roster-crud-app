@@ -1,13 +1,20 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ClientContext from '../context/ClientContext';
 
 const IndexView = () => {
-  const value = useContext(ClientContext);
+  const clientDetails = useContext(ClientContext);
 
   return (
     <View>
-      <Text>{value}</Text>
+      <Text>Index View</Text>
+      <FlatList
+        data={clientDetails}
+        keyExtractor={(clientDetail) => clientDetail.name}
+        renderItem={({ item }) => {
+          return <Text>{item.name}</Text>
+        }}
+      />
     </View>
   )
 }
