@@ -3,7 +3,7 @@ import createDataContext from './createDataContext';
 const clientReducer = (state, action) => {
   switch(action.type) {
     case 'add_clientdetail':
-      return [...state, {name: `Client Detail #${state.length + 1}`}];
+      return [...state, {id: Math.floor(Math.random() * 99999), name: `Client Detail #${state.length + 1}`}];
     default:
       return state;
   }

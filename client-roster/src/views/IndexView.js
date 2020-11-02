@@ -7,7 +7,7 @@ const IndexView = () => {
   const { state, addClientDetail } = useContext(Context);
 
   return (
-    <View>
+    <View style={styles.background}>
       <Button
         title="Add New Client"
         onPress={addClientDetail}
@@ -18,7 +18,7 @@ const IndexView = () => {
         renderItem={({ item }) => {
           return (
             <View style={styles.row}>
-              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.name}>{item.name} - {item.id}</Text>
               <AntDesign name="deleteuser" style={styles.icon} />
             </View>
           )
@@ -29,16 +29,33 @@ const IndexView = () => {
 }
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: '#f5c58f',
+    height: '100%'
+  },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    borderColor: '#12a48d',
+    borderTopWidth: 1
   },
   name: {
-    fontSize: 18
+    fontSize: 18,
+    color: '#b8595c'
   },
   icon: {
-    fontSize: 24
+    fontSize: 28,
+    color: '#b8595c'
   }
 });
+
+// Color Theme:
+// #12a48d	rgb(18, 164, 141)
+// #b8595c	rgb(184, 89, 92)
+// #a78e9f	rgb(167, 142, 159)
+// #0684be	rgb(6, 132, 190)
+// #f5c58f	rgb(245, 197, 143)
 
 export default IndexView;
