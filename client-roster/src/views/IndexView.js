@@ -4,7 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/ClientContext';
 
 const IndexView = () => {
-  const { state, addClientDetail } = useContext(Context);
+  const { state, addClientDetail, deleteClientDetail } = useContext(Context);
 
   return (
     <View style={styles.background}>
@@ -20,7 +20,7 @@ const IndexView = () => {
             <View style={styles.row}>
               <Text style={styles.name}>{item.name} - {item.id}</Text>
               <TouchableOpacity
-                onPress={() => console.log(item.id)}
+                onPress={() => deleteClientDetail(item.id)}
               >
                 <AntDesign name="deleteuser" style={styles.icon} />
               </TouchableOpacity>
