@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/ClientContext';
 
@@ -19,7 +19,11 @@ const IndexView = () => {
           return (
             <View style={styles.row}>
               <Text style={styles.name}>{item.name} - {item.id}</Text>
-              <AntDesign name="deleteuser" style={styles.icon} />
+              <TouchableOpacity
+                onPress={() => console.log(item.id)}
+              >
+                <AntDesign name="deleteuser" style={styles.icon} />
+              </TouchableOpacity>
             </View>
           )
         }}
