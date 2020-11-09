@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import { Context } from '../context/ClientContext';
 
 const IndexView = ({ navigation }) => {
@@ -38,7 +38,7 @@ IndexView.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
       <TouchableOpacity onPress={() => navigation.navigate('Create')}>
-        <Ionicons name="md-add-circle-outline" size={30} />
+        <Feather name="plus" size={30} />
       </TouchableOpacity>
     ),
   }
