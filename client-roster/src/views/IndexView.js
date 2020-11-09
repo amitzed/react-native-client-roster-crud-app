@@ -3,32 +3,34 @@ import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'reac
 import { AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/ClientContext';
 
-const IndexView = () => {
+const IndexView = ({ navigation }) => {
   const { state, addClientDetail, deleteClientDetail } = useContext(Context);
 
   return (
-    <View style={styles.background}>
-      <Button
-        title="Add New Client"
-        onPress={addClientDetail}
-      />
-      <FlatList
-        data={state}
-        keyExtractor={(clientDetail) => clientDetail.name}
-        renderItem={({ item }) => {
-          return (
-            <View style={styles.row}>
-              <Text style={styles.name}>{item.name} - {item.id}</Text>
-              <TouchableOpacity
-                onPress={() => deleteClientDetail(item.id)}
-              >
-                <AntDesign name="deleteuser" style={styles.icon} />
-              </TouchableOpacity>
-            </View>
-          )
-        }}
-      />
-    </View>
+    <TouchableOpacity onPress={() => navigation.navigate('Show')}>
+      <View style={styles.background}>
+        <Button
+          title="Add New Client"
+          onPress={addClientDetail}
+        />
+        <FlatList
+          data={state}
+          keyExtractor={(clientDetail) => clientDetail.name}
+          renderItem={({ item }) => {
+            return (
+              <View style={styles.row}>
+                <Text style={styles.name}>{item.name} - {item.id}</Text>
+                <TouchableOpacity
+                  onPress={() => deleteClientDetail(item.id)}
+                >
+                  <AntDesign name="deleteuser" style={styles.icon} />
+                </TouchableOpacity>
+              </View>
+            )
+          }}
+        />
+      </View>
+    </TouchableOpacity>
   )
 }
 
