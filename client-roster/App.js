@@ -5,10 +5,12 @@ import { Provider } from './src/context/ClientContext';
 
 import IndexView from './src/views/IndexView';
 import ShowView from './src/views/ShowView';
+import CreateView from './src/views/CreateView';
 
 const navigator = createStackNavigator({
   Index: IndexView,
-  Show: ShowView
+  Show: ShowView,
+  Create: CreateView
 }, {
   initialRouteName: 'Index',
   defaultNavigationOption: {

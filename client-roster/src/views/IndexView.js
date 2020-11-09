@@ -7,17 +7,17 @@ const IndexView = ({ navigation }) => {
   const { state, addClientDetail, deleteClientDetail } = useContext(Context);
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('Show')}>
-      <View style={styles.background}>
-        <Button
-          title="Add New Client"
-          onPress={addClientDetail}
-        />
-        <FlatList
-          data={state}
-          keyExtractor={(clientDetail) => clientDetail.name}
-          renderItem={({ item }) => {
-            return (
+    <View style={styles.background}>
+      <Button
+        title="Add New Client"
+        onPress={addClientDetail}
+      />
+      <FlatList
+        data={state}
+        keyExtractor={(clientDetail) => clientDetail.name}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
               <View style={styles.row}>
                 <Text style={styles.name}>{item.name} - {item.id}</Text>
                 <TouchableOpacity
@@ -26,11 +26,11 @@ const IndexView = ({ navigation }) => {
                   <AntDesign name="deleteuser" style={styles.icon} />
                 </TouchableOpacity>
               </View>
-            )
-          }}
-        />
-      </View>
-    </TouchableOpacity>
+            </TouchableOpacity>
+          )
+        }}
+      />
+    </View>
   )
 }
 

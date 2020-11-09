@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ShowView = () => {
+import { Context } from '../context/ClientContext';
+
+const ShowView = ({ navigation }) => {
+  const { state } = useContext(Context);
+
+  const clientDetail = state.find((clientDetail) => clientDetail.id === navigation.getParam('id'));
+
   return (
     <View>
-      <Text>ShowView</Text>
+      <Text>{clientDetail.name}</Text>
     </View>
   )
 }
