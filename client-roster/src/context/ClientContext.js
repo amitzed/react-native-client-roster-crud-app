@@ -7,17 +7,32 @@ const clientReducer = (state, action) => {
         (clientDetail) => clientDetail.id !== action.payload
       )
     case 'add_clientdetail':
-      return [...state, {id: Math.floor(Math.random() * 99999), name: `Client Detail #${state.length + 1}`}];
+      return [...state, {id: Math.floor(Math.random() * 99999),
+        name: action.payload.name,
+        email: action.payload.email,
+        phone: action.payload.phone,
+        address: action.payload.address,
+        balance: action.payload.balance
+      }
+    ];
     default:
       return state;
   }
 };
 
 const addClientDetail = (dispatch) => {
-  return () => {
+  return (name, email, phone, address, balance, callback) => {
     dispatch({
-      type: 'add_clientdetail'
+      type: 'add_clientdetail',
+      payload: {
+        name,
+        email,
+        phone,
+        address,
+        balance
+      }
     });
+    callback();
   }
 }
 

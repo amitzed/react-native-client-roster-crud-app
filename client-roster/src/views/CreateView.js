@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
+import { Context } from '../context/ClientContext';
+
 const CreateView = ({ navigation }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [balance, setBalance] = useState('');
+
+  const { addClientDetail } = useContext(Context);
 
   return (
     <View style={styles.container}>
@@ -40,7 +44,12 @@ const CreateView = ({ navigation }) => {
         value={balance}
         onChangeText={(text) => setBalance(text)}
       />
-      <Button title="Add New Client" />
+      <Button
+        title="Add New Client"
+        onPress={() => addClientDetail(name, email, phone, address, balance, () => {
+          navigation.navigate('Index')
+        })}
+      />
     </View>
   )
 }

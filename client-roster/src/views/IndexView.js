@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
-import { AntDesign, Feather } from '@expo/vector-icons';
+import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons';
 import { Context } from '../context/ClientContext';
 
 const IndexView = ({ navigation }) => {
-  const { state, addClientDetail, deleteClientDetail } = useContext(Context);
+  const { state, deleteClientDetail } = useContext(Context);
 
   return (
     <View style={styles.background}>
-      <Button
-        title="Add New Client"
-        onPress={addClientDetail}
-      />
+      <MaterialIcons name="people" style={styles.brandIcon} />
+      <Text style={styles.brand}>
+        Client Roster
+      </Text>
       <FlatList
         data={state}
         keyExtractor={(clientDetail) => clientDetail.name}
@@ -48,6 +48,19 @@ const styles = StyleSheet.create({
   background: {
     backgroundColor: '#f5c58f',
     height: '100%'
+  },
+  brandIcon: {
+    textAlign: 'center',
+    marginTop: 10,
+    fontSize: 50,
+    color: '#b8595c'
+  },
+  brand: {
+    color: '#0684be',
+    textAlign: 'center',
+    marginBottom: 10,
+    fontSize: 20,
+    fontWeight: '700'
   },
   row: {
     flexDirection: 'row',
