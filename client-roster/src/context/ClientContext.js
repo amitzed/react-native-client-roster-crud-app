@@ -48,5 +48,5 @@ const deleteClientDetail = (dispatch) => {
 export const { Context, Provider } = createDataContext(
   clientReducer,
   {addClientDetail, deleteClientDetail},
-  []
+  [ {name: 'Joe Schmoe', email: 'jschmoe@gmail.com', phone: '888-555-1212', address: '47 West 40th Street, New York, NY 10025', balance: '425', id: 1} ]
 );
