@@ -5,14 +5,23 @@ import { Context } from '../context/ClientContext';
 import ClientDetailForm from '../components/ClientDetailForm';
 
 const EditView = ({ navigation }) => {
-  const { state } = useContext(Context);
+  const id = navigation.getParam('id');
 
-  const clientDetail = state.find((clientDetail) => clientDetail.id === navigation.getParam('id'));
+  const { state, editClientDetail } = useContext(Context);
+
+  const clientDetail = state.find((clientDetail) => clientDetail.id === id);
 
   return (
     <ClientDetailForm
+      initialValues={{
+        name: clientDetail.name,
+        email: clientDetail.email,
+        phone: clientDetail.phone,
+        address: clientDetail.address,
+        balance: clientDetail.balance
+      }}
       onSubmit={(name, email, phone, address, balance) => {
-        console.log(name, email, phone, address, balance);
+        editClientDetail(id, name, email, phone, address, balance, () => navigation.pop())
       }}
     />
   )

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
-const ClientDetailForm = ({ onSubmit }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [balance, setBalance] = useState('');
+const ClientDetailForm = ({ onSubmit, initialValues }) => {
+  const [name, setName] = useState(initialValues.name);
+  const [email, setEmail] = useState(initialValues.email);
+  const [phone, setPhone] = useState(initialValues.phone);
+  const [address, setAddress] = useState(initialValues.address);
+  const [balance, setBalance] = useState(initialValues.balance);
 
   return (
     <View style={styles.container}>
@@ -46,6 +46,16 @@ const ClientDetailForm = ({ onSubmit }) => {
       />
     </View>
   )
+}
+
+ClientDetailForm.defaultProps={
+  initialValues: {
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    balance: ''
+  }
 }
 
 const styles = StyleSheet.create({
