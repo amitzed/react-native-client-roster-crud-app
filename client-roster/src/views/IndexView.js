@@ -1,10 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
 import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons';
 import { Context } from '../context/ClientContext';
 
 const IndexView = ({ navigation }) => {
-  const { state, deleteClientDetail } = useContext(Context);
+  const { state, deleteClientDetail, getClientDetails } = useContext(Context);
+
+  useEffect(() => {
+    getClientDetails();
+
+    navigation.addListener('didFocus', () => {
+      getClientDetails();
+    });
+
+    return () => {
+      listener.remove();
+    };
+  }, [])
 
   return (
     <View style={styles.background}>

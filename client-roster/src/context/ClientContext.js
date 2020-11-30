@@ -17,15 +17,6 @@ const clientReducer = (state, action) => {
       return state.filter(
         (clientDetail) => clientDetail.id !== action.payload
       )
-    case 'add_clientdetail':
-      return [...state, {id: Math.floor(Math.random() * 99999),
-        name: action.payload.name,
-        email: action.payload.email,
-        phone: action.payload.phone,
-        address: action.payload.address,
-        balance: action.payload.balance
-      }
-    ];
     default:
       return state;
   }
@@ -43,17 +34,9 @@ const getClientDetails = (dispatch) => {
 }
 
 const addClientDetail = (dispatch) => {
-  return (name, email, phone, address, balance, callback) => {
-    dispatch({
-      type: 'add_clientdetail',
-      payload: {
-        name,
-        email,
-        phone,
-        address,
-        balance
-      }
-    });
+  return async (name, email, phone, address, balance, callback) => {
+    await jsonServer.post('clientdetails', {name, email, phone, address, balance});
+
     if(callback) {
       callback();
     }
@@ -61,7 +44,9 @@ const addClientDetail = (dispatch) => {
 }
 
 const editClientDetail = (dispatch) => {
-  return (id, name, email, phone, address, balance, callback) => {
+  return async (id, name, email, phone, address, balance, callback) => {
+    await jsonServer.put(`/clientdetails/${id}`, {name, email, phone, address, balance})
+
     dispatch({
       type: 'edit_clientdetail',
       payload: { id, name, email, phone, address, balance }
@@ -73,7 +58,9 @@ const editClientDetail = (dispatch) => {
 }
 
 const deleteClientDetail = (dispatch) => {
-  return (id) => {
+  return async (id) => {
+    await jsonServer.delete(`/clientdetails/${id}`)
+
     dispatch({
       type: 'delete_clientdetail',
       payload: id

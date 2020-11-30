@@ -1,4 +1,4 @@
-# React-Native Client Roster CRUD App (Work in Progress)
+# React-Native Client Roster CRUD App **(Work in Progress)**
 
 ## I) cd into jsonserver folder
 ### a) npm install

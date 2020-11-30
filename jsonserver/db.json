@@ -1,3 +1,20 @@
 {
-  "clientdetails": []
+  "clientdetails": [
+    {
+      "name": "John Somename",
+      "email": "johnsn@gmail.com",
+      "phone": "212-555-5555",
+      "address": "237 West 45th Street, New York, NY 10025",
+      "balance": "775",
+      "id": 1,
+    },
+    {
+      "name": "Janie",
+      "email": "Jane@gmail.com",
+      "phone": "917-777-7777",
+      "address": "74 East 77th Street, New York, NY 10002",
+      "balance": "445",
+      "id": 2
+    }
+  ]
 }
