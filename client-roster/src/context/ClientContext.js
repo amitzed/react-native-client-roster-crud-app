@@ -1,7 +1,10 @@
 import createDataContext from './createDataContext';
+import jsonServer from '../api/jsonServer';
 
 const clientReducer = (state, action) => {
   switch(action.type) {
+    case 'get_clientdetails':
+      return action.payload
     case 'edit_clientdetail':
       return state.map((clientDetail) => {
         return clientDetail.id === action.payload.id
@@ -27,6 +30,17 @@ const clientReducer = (state, action) => {
       return state;
   }
 };
+
+const getClientDetails = (dispatch) => {
+  return async () => {
+    const response = await jsonServer.get('/clientdetails');
+
+    dispatch({
+      type: 'get_clientdetails',
+      payload: response.data
+    })
+  }
+}
 
 const addClientDetail = (dispatch) => {
   return (name, email, phone, address, balance, callback) => {
@@ -69,6 +83,6 @@ const deleteClientDetail = (dispatch) => {
 
 export const { Context, Provider } = createDataContext(
   clientReducer,
-  {addClientDetail, editClientDetail, deleteClientDetail},
-  [ {name: 'Joe Schmoe', email: 'jschmoe@gmail.com', phone: '888-555-1212', address: '47 West 40th Street, New York, NY 10025', balance: '425', id: 1} ]
+  {getClientDetails, addClientDetail, editClientDetail, deleteClientDetail},
+  []
 );
