@@ -27,26 +27,6 @@ const EditView = ({ navigation }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginVertical: 30,
-    marginHorizontal: 15,
-  },
-  label: {
-    fontSize: 30,
-    marginBottom: 5,
-    marginLeft: 5,
-    textAlign: 'center'
-  },
-  input: {
-    fontSize: 18,
-    borderWidth: 1,
-    borderColor: 'black',
-    marginBottom: 25,
-    padding: 5,
-    margin: 5,
-    textAlign: 'center'
-  }
-});
+const styles = StyleSheet.create({});
 
 export default EditView;

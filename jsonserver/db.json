@@ -6,15 +6,55 @@
       "phone": "212-555-5555",
       "address": "237 West 45th Street, New York, NY 10025",
       "balance": "775",
-      "id": 1,
+      "id": 1
     },
     {
-      "name": "Janie",
+      "name": "Janie Solar",
       "email": "Jane@gmail.com",
       "phone": "917-777-7777",
       "address": "74 East 77th Street, New York, NY 10002",
       "balance": "445",
       "id": 2
+    },
+    {
+      "name": "Blackie Hole",
+      "email": "bh@gmail.com",
+      "phone": "888-777-7777",
+      "address": "89 East 77th Street, New York, NY 10002",
+      "balance": "1,487",
+      "id": 3
+    },
+    {
+      "name": "Event Horizon",
+      "email": "eh@gmail.com",
+      "phone": "718-777-7777",
+      "address": "235 East 77th Street, New York, NY 10002",
+      "balance": "20,117",
+      "id": 4
+    },
+    {
+      "name": "Jose Magnetar",
+      "email": "Magnetar@gmail.com",
+      "phone": "845-777-7777",
+      "address": "201 East 77th Street, New York, NY 10002",
+      "balance": "14",
+      "id": 5
+    },
+    {
+      "name": "Red Giant",
+      "email": "rg@gmail.com",
+      "phone": "415-777-7777",
+      "address": "396 East 77th Street, New York, NY 10002",
+      "balance": "0",
+      "id": 6
+    },
+    {
+      "name": "Oumuamua Oumuamua",
+      "email": "OO@gmail.com",
+      "phone": "800-777-7777",
+      "address": "17 East 77th Street, New York, NY 10002",
+      "balance": "1,434",
+      "id": 7
     }
   ]
 }
